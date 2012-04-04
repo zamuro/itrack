@@ -1,0 +1,1 @@
+<? echo "este es el footer"; ?>
