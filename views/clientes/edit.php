@@ -15,7 +15,7 @@ $cirif = $_POST['cirif'];
 $clase = new Clientes();
 $variable = "search_cirif";
 $clase->$variable;
-while ($row = pg_fetch_array($query)) {
+while ($row = pg_fetch_assoc($query)) {
 ?>
 <form action='/itrack/controller/clientes/edit.php' method=POST>
 	<table>

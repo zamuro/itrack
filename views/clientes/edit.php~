@@ -13,7 +13,7 @@
 include "../../model/db.inc.php";
 $cirif = $_POST['cirif'];
 $clase = new Clientes();
-$variable = 'search_cirif';
+$variable = "search_cirif";
 $clase->$variable;
 while ($row = pg_fetch_array($query)) {
 ?>
