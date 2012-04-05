@@ -6,7 +6,7 @@
 		<body>
 			<div class=header><? require_once "views/common/header.php"; ?> </div>
 			<div class=sidebar><? require_once "views/common/sidebar.php"; ?></div>
-			<div class=body><? require_once "views/clientes/add.php";  ?></div> 
+			<div class=body><? require_once "views/clientes/add.php"; ?></div> 
 			<script>
 			$(".class").live("click", function(e){
 			e.preventDefault();

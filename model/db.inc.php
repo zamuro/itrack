@@ -15,6 +15,13 @@ class Clientes {
 		return $query;
 	}
 	
+	public static function edit($cliente, $nombre, $ci_rif, $tlf1, $tlf2, $email, $encrypted_password) {
+		$clase = 'General';
+		$clase::connect();
+		$string = "update clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$ci_rif', '$tlf1', '$tlf2', '$email', '$encrypted_password') where nombre='$cliente'";
+		$query = pg_query($string);
+		return $query;
+	}
 	function show() {
 		$clase = 'General';
 		$clase::connect();
