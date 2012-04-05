@@ -15,7 +15,7 @@ class Clientes {
 		return $query;
 	}
 	
-	function search_cirif($cirif) {
+	function search_cirif() {
 		$clase = 'General';
 		$clase::connect();
 		$string = "select * from clientes where ci_rif='$cirif'";
