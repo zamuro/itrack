@@ -7,8 +7,9 @@ function add() {
 	$tlf2 = $_POST['tlf2'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$encrypted_password = md5($password);
 	$clase = 'Clientes';
-	$clase::add($nombre, $ci_rif, $tlf1, $tlf2, $email, $password);
+	$clase::add($nombre, $ci_rif, $tlf1, $tlf2, $email, $encrypted_password);
 	}
 return add();
 include "../../index.php";

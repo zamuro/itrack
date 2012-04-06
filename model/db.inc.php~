@@ -7,26 +7,50 @@ class General {
 }
 
 class Clientes {
-	public static function add($nombre, $ci_rif, $tlf1, $tlf2, $email, $encrypted_password) {
+	public static function add($nombre, $ci_rif, $tlf1, $tlf2, $email, $password) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "insert into clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$ci_rif', '$tlf1', '$tlf2', '$email', '$encrypted_password')";
+		$string = "insert into clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$ci_rif', '$tlf1', '$tlf2', '$email', '$password')";
 		$query = pg_query($string);
 		return $query;
 	}
 	
-	function search_cirif() {
+	public static function search_cirif($cirif) {
 		$clase = 'General';
 		$clase::connect();
 		$string = "select * from clientes where ci_rif='$cirif'";
 		$query = pg_query($string);
-#		return $query;
+		while ($row = pg_fetch_array($query)) {
+?>
+			<table>
+				<tr>
+					<td>Nombre: </td><td><? echo $row['nombre']; ?>
+				</tr>
+				<tr>
+					<td>CI/RIF: </td><td><? echo $row['ci_rif']; ?>
+				</tr>
+				<tr>
+					<td>TLF 1: </td><td><? echo $row['tlf1']; ?>
+				</tr>
+				<tr>
+					<td>TLF 2: </td><td><? echo $row['tlf2']; ?>
+				</tr>
+				<tr>
+					<td>email: </td><td><? echo $row['email']; ?>
+				</tr>
+				<tr>
+					<td>Palabra Clave: </td><td><? echo $row['password']; ?>
+				</tr>
+				<tr>
+			</table>
+<?
+		}
 	}
 	
-	public static function edit($cliente, $nombre, $ci_rif, $tlf1, $tlf2, $email, $encrypted_password) {
+	public static function edit($cliente, $nombre, $cirif, $tlf1, $tlf2, $email, $encrypted_password) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "update clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$ci_rif', '$tlf1', '$tlf2', '$email', '$encrypted_password') where nombre='$cliente'";
+		$string = "update clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$cirif', '$tlf1', '$tlf2', '$email', '$encrypted_password') where ci_rif='$cirif'";
 		$query = pg_query($string);
 		return $query;
 	}
@@ -71,14 +95,30 @@ class Vehiculos {
 		$clase::Connect();
 		$string = "select * from vehiculos where cliente_id='$ci_rif'";
 		$query = pg_query($string);
-			while ($row = pg_fetch_array($query)) {
-			echo $row['cliente_id'] ;
-			echo $row['placa'];
-			echo $row['marca'];
-			echo $row['modelo'];
-			echo $row['color'];
-			echo $row['purchase_year'];
-		}
+		while ($row = pg_fetch_array($query)) {
+			?>
+			<table>
+				<tr>
+					<td>CI/RIF: </td><td><? echo $row['cliente_id']; ?>
+				</tr>
+				<tr>
+					<td>Placa: </td><td><? echo $row['placa']; ?>
+				</tr>
+				<tr>
+					<td>Marca: </td><td><? echo $row['marca']; ?>
+				</tr>
+				<tr>
+					<td>Modelo: </td><td><? echo $row['modelo']; ?>
+				</tr>
+				<tr>
+					<td>Color: </td><td><? echo $row['color']; ?>
+				</tr>
+				<tr>
+					<td>Año: </td><td><? echo $row['purchase_year']; ?>
+				</tr>
+				<tr>
+			</table>
+		<? }
 	}
 	
 	static function search_placa($placa) {
@@ -87,14 +127,37 @@ class Vehiculos {
 		$string = "select * from vehiculos where placa='$placa'";
 		$query = pg_query($string);
 		while ($row = pg_fetch_array($query)) {
-			echo $row['cliente_id'];
-			echo $row['placa'];
-			echo $row['marca'];
-			echo $row['modelo'];
-			echo $row['color'];
-			echo $row['purchase_year'];
-		}
+			?>
+			<table>
+				<tr>
+					<td>CI/RIF: </td><td><? echo $row['cliente_id']; ?>
+				</tr>
+				<tr>
+					<td>Placa: </td><td><? echo $row['placa']; ?>
+				</tr>
+				<tr>
+					<td>Marca: </td><td><? echo $row['marca']; ?>
+				</tr>
+				<tr>
+					<td>Modelo: </td><td><? echo $row['modelo']; ?>
+				</tr>
+				<tr>
+					<td>Color: </td><td><? echo $row['color']; ?>
+				</tr>
+				<tr>
+					<td>Año: </td><td><? echo $row['purchase_year']; ?>
+				</tr>
+				<tr>
+			</table>
+		<? }
 	}
 	
+	public static function edit($cliente, $nombre, $cirif, $tlf1, $tlf2, $email, $encrypted_password) {
+		$clase = 'General';
+		$clase::connect();
+		$string = "update clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$cirif', '$tlf1', '$tlf2', '$email', '$encrypted_password') where ci_rif='$cirif'";
+		$query = pg_query($string);
+		return $query;
+	}
 }
 ?>
