@@ -152,12 +152,57 @@ class Vehiculos {
 		<? }
 	}
 	
-	public static function edit($cliente, $nombre, $cirif, $tlf1, $tlf2, $email, $encrypted_password) {
+	static function search_st($placa) {
+		$clase = 'General';
+		$clase::Connect();
+		$string = "select * from vehiculos where placa='$placa'";
+		$query = pg_query($string);
+		while ($row = pg_fetch_array($query)) {
+			?>
+			<table>
+				<tr>
+					<td>CI/RIF: </td><td><? echo $row['cliente_id']; ?>
+				</tr>
+				<tr>
+					<td>Placa: </td><td><? echo $row['placa']; ?>
+				</tr>
+				<tr>
+					<td>Marca: </td><td><? echo $row['marca']; ?>
+				</tr>
+				<tr>
+					<td>Modelo: </td><td><? echo $row['modelo']; ?>
+				</tr>
+				<tr>
+					<td>Color: </td><td><? echo $row['color']; ?>
+				</tr>
+				<tr>
+					<td>Año: </td><td><? echo $row['purchase_year']; ?>
+				</tr>
+				<tr>
+					<td>ID Módulo: </td><td><? echo $row['idmodulo']; ?>
+				</tr>
+				<tr>
+					<td>Número GSM: </td><td><? echo $row['gsm']; ?>
+				</tr>
+			</table>
+		<? }
+	}
+
+	public static function edit($cliente_id, $placa, $marca, $modelo, $color, $purchase_year, $idmodulo) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "update clientes(cliente_id, placa, marca, modelo, color, purchase_year) values ('$cliente_id', '$placa', '$marca', '$modelo', '$color', '$purchase_year') where placa='$placa'";
+		$string = "update vehiculos(cliente_id, placa, marca, modelo, color, purchase_year, idmodulo) values ('$cliente_id', '$placa', '$marca', '$modelo', '$color', '$purchase_year', '$idmodulo') where placa='$placa'";
 		$query = pg_query($string);
 		return $query;
 	}
+
+	public static function edit_st($placa, $gsm, $firmware, $version, $idmodulo) {
+		$clase = 'General';
+		$clase::connect();
+		$string = "update vehiculos(idmodulo, version, firmware, gsm) values ('$idmodulo', '$version', '$firmware', '$gsm') where placa='$placa'";
+		$query = pg_query($string);
+		return $query;
+	}
+
 }
 ?>

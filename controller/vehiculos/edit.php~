@@ -7,9 +7,8 @@ function edit() {
 	$modelo = $_POST['modelo'];
 	$color = $_POST['color'];
 	$purchase_year = $_POST['purchase_year'];
-	$idmodulo = $_POST['idmodulo'];
 	$clase = 'Vehiculos';
-	$clase::edit($cliente_id, $placa, $modelo, $marca, $color, $purchase_year, $idmodulo);
+	$clase::edit($cliente_id, $placa, $modelo, $marca, $color, $purchase_year);
 	}
 return edit();
 include "../../index.php";
