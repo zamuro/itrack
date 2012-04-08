@@ -23,7 +23,7 @@
 			$select = "select";
 			$clase->$select();
 			while ($row = pg_fetch_array($query)) {
-				?><option value="<? echo $row['id']; ?>"><? echo $row['flag']; 
+				?><option value=" <? echo $row['id']; ?> "><? echo $row['flag']; 
 				} ?></option>
 			</select>
 			</td>

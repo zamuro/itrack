@@ -18,7 +18,7 @@ header ('location: ../index.php');
 }
 else {
 echo "No existe usuario con ese id";
-include "../login.php";
 }
-
+#$clase = 'Check';
+#$clase::login($usuario, $password);
 ?>

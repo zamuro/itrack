@@ -75,7 +75,7 @@ class Usuarios {
 	public static function add($usuario, $flag, $activo, $encrypted_password) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "insert into usuarios(usuario, flag_id, activo, password) values ($usuario, $flag, 'TRUE', $encrypted_password)";
+		$string = "insert into usuarios(usuario, flag_id, activo, password) values ('$usuario','$flag','TRUE','$encrypted_password')";
 		$query = pg_query($string);
 		return $query;
 	}
@@ -191,9 +191,28 @@ class Vehiculos {
 	public static function edit($cliente_id, $placa, $marca, $modelo, $color, $purchase_year, $idmodulo) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "update clientes(cliente_id, placa, marca, modelo, color, purchase_year, idmodulo) values ('$cliente_id', '$placa', '$marca', '$modelo', '$color', '$purchase_year', '$idmodulo') where placa='$placa'";
+		$string = "update vehiculos(cliente_id, placa, marca, modelo, color, purchase_year, idmodulo) values ('$cliente_id', '$placa', '$marca', '$modelo', '$color', '$purchase_year', '$idmodulo') where placa='$placa'";
 		$query = pg_query($string);
 		return $query;
+	}
+
+	public static function edit_st($placa, $gsm, $firmware, $version, $idmodulo) {
+		$clase = 'General';
+		$clase::connect();
+		$string = "update vehiculos(idmodulo, version, firmware, gsm) values ('$idmodulo', '$version', '$firmware', '$gsm') where placa='$placa'";
+		$query = pg_query($string);
+		return $query;
+	}
+}
+
+class Flags {
+	function select() {
+		$clase = 'General';
+		$clase::connect();
+		$string = "select * from flags";
+		$query = pg_query($string);
+		return $query;
+		}
 	}
 }
 ?>

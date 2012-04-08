@@ -17,6 +17,7 @@ class Check {
 		}
 		else {
 		echo "No existe usuario con ese id";
+		include "../login.php";
 		}
 	}
 

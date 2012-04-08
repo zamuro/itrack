@@ -5,5 +5,5 @@ echo "chao, ". $_SESSION['usuario'];
 ?><h1>Has salido</a>
 <?
 session_destroy();
-include "login.php";
+header ('location:index.php');
 ?>

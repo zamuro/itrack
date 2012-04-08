@@ -1,0 +1,23 @@
+<html>
+	<table>
+	<tr>
+		<td><a href=/itrack><img src=assets/images/logo.jpg /></a></td>
+		<td><h1>Sistema de registro de usuarios de itrack GPS</h1></td>
+		<td>
+			<?
+			session_start();
+			if (!isset ($_SESSION['usuario'])) {
+				?>
+				<a href=login.php>Iniciar Sesión</a>
+				<?
+			} 
+			else {
+				?>
+				<a href= logout.php>Salir</a>
+				<?
+			}
+			?>
+		</td>
+	</tr>
+	</table>
+</html>

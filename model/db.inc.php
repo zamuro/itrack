@@ -75,7 +75,7 @@ class Usuarios {
 	public static function add($usuario, $flag, $activo, $encrypted_password) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "insert into usuarios(usuario, flag_id, activo, password) values ($usuario, $flag, 'TRUE', $encrypted_password)";
+		$string = "insert into usuarios(usuario, flag_id, activo, password) values ('$usuario','$flag','TRUE','$encrypted_password')";
 		$query = pg_query($string);
 		return $query;
 	}
@@ -203,6 +203,15 @@ class Vehiculos {
 		$query = pg_query($string);
 		return $query;
 	}
+}
 
+class Flags {
+	function select() {
+		$clase = 'General';
+		$clase::connect();
+		$string = "select * from flags";
+		$query = pg_query($string);
+		return $query;
+	}
 }
 ?>
