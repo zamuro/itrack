@@ -6,7 +6,7 @@
 		<td><a href="views/clientes/add.php" class=class>Crear cliente</a></td>
 	</tr>
 	<tr>
-		<td><a href="views/clientes/edit_st.php" class=class>Editar cliente</a></td>
+		<td><a href="views/clientes/edit.php" class=class>Editar cliente</a></td>
 	</tr>
 
 	<tr>
