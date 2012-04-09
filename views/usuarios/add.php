@@ -12,16 +12,16 @@
 		</tr>
 		<tr>
 			<td>Activo</td>
-			<td><input type=text name=activo id=activo /></td>
+			<td><input type=radio name=activo id=activo value='TRUE' />Sí</td>
+			<td><input type=radio name=activo id=activo value='FALSE' />No</td>
 		</tr>
 		<tr>
 			<td>Flag</td>
-			<td><select id=flag name=flag>
+			<td><select id=flag_id name=flag_id>
 			<?
-			include "model/db.inc.php";
-			$clase = new Flags();
-			$select = "select";
-			$clase->$select();
+			include '../../model/db.inc.php';
+			$clase = 'Flags';
+			$query = $clase::select();
 			while ($row = pg_fetch_array($query)) {
 				?><option value="<? echo $row['id']; ?>"><? echo $row['flag']; 
 				} ?></option>

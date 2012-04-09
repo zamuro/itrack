@@ -11,4 +11,3 @@ function add() {
 	}
 return add();
 	?>
-<A href=../../index.php>Regresa al inicio</a>
