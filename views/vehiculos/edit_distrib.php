@@ -1,6 +1,6 @@
 <html>
 <h1>Editar cliente</h1>
-<form action='edit.php' method=POST>
+<form action='views/vehiculos/edit_distrib.php' method=GET>
 	<table>
 		<tr>
 			<td>Placa:</td>
@@ -10,12 +10,13 @@
 	</table>
 </form>
 <?
-include "../../model/db.inc.php";
-$cirif = $_POST['placa'];
+require_once "../../model/db.inc.php";
+$placa = $_GET['placa'];
 $clase = 'Vehiculos';
 $clase::search_placa($placa);
 ?>
-<form action='/itrack/controller/vehiculos/edit.php' method=POST>
+<form action='../../controller/vehiculos/edit.php' method=POST>
+<INPUT TYPE=HIDDEN NAME=PLACA ID=PLACA VALUE<? echo $placa; ?>>
 	<table>
 		<tr>
 			<td>CI/RIF del Cliente: </td>
@@ -23,7 +24,7 @@ $clase::search_placa($placa);
 		</tr>
 		<tr>
 			<td>Placa: </td>
-			<td><input type=text name=placa id=placa /></td>
+			<td><input type=text name=placa_nueva id=placa_nueva /></td>
 		</tr>
 		<tr>
 			<td>Marca:</td>

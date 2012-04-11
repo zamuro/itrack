@@ -82,10 +82,10 @@ class Usuarios {
 }
 
 class Vehiculos {
-	public static function add($cliente_id, $placa, $modelo, $marca, $color, $idmodulo, $version, $gsm, $firmware, $purchase_year ) {
+	public static function add($cliente_id, $placa, $modelo, $marca, $color, $idmodulo, $purchase_year ) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "insert into vehiculos(cliente_id, placa, modelo, marca, color, idmodulo, version, gsm, firmware, purchase_year) values ('$cliente_id', '$placa', '$modelo', '$marca', '$color', '$idmodulo', '$version', '$gsm', '$firmware', '$purchase_year')";
+		$string = "insert into vehiculos(cliente_id, placa, modelo, marca, color, idmodulo, purchase_year) values ('$cliente_id', '$placa', '$modelo', '$marca', '$color', '$idmodulo', '$purchase_year')";
 		$query = pg_query($string);
 		return $query;
 	}
@@ -126,7 +126,7 @@ class Vehiculos {
 		$clase::Connect();
 		$string = "select * from vehiculos where placa='$placa'";
 		$query = pg_query($string);
-		while ($row = pg_fetch_array($query)) {
+		while (		$row = pg_fetch_array($query)) {
 			?>
 			<table>
 				<tr>
@@ -146,6 +146,9 @@ class Vehiculos {
 				</tr>
 				<tr>
 					<td>Año: </td><td><? echo $row['purchase_year']; ?>
+				</tr>
+				<tr>
+					<td>ID del módulo: </td><td><? echo $row['idmodulo']; ?>
 				</tr>
 				<tr>
 			</table>
@@ -191,7 +194,7 @@ class Vehiculos {
 	public static function edit($cliente_id, $placa, $marca, $modelo, $color, $purchase_year, $idmodulo) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "update vehiculos(cliente_id, placa, marca, modelo, color, purchase_year, idmodulo) values ('$cliente_id', '$placa', '$marca', '$modelo', '$color', '$purchase_year', '$idmodulo') where placa='$placa'";
+		$string = "update vehiculos set cliente_id='$cliente_id', placa='$placa_nueva', marca='$marca', modelo='$modelo', color='$color', purchase_year='$purchase_year', idmodulo='$idmodulo'where placa='$placa'";
 		$query = pg_query($string);
 		return $query;
 	}

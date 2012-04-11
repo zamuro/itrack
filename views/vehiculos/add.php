@@ -1,6 +1,6 @@
 <html>
 <h1>Asignar Vehículos</h1>
-<form action='http://localhost/itrack/controller/vehiculos/add.php' method=POST >
+<form action='controller/vehiculos/add.php' method=POST >
 	<table>
 		<tr>
 			<td>CI/RIF del Cliente</td>
@@ -30,19 +30,6 @@
 			<td>ID del módulo</td>
 			<td><input type=text name=idmodulo id=idmodulo /></td>
 		</tr>
-		<tr>
-			<td>Versión</td>
-			<td><input type=text name=version id=version /></td>
-		</tr>
-		<tr>
-			<td>Número GSM</td>
-			<td><input type=text name=gsm id=gsm /></td>
-		</tr>
-		<tr>
-			<td>Versión del Firmware</td>
-			<td><input type=text name=firmware id=firmware /></td>
-		</tr>
-
 		<tr>
 			<td><input type=submit value=Generar /></td>
 		</tr>

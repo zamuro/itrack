@@ -7,12 +7,11 @@ function add() {
 	$marca = $_POST['marca'];
 	$color = $_POST['color'];
 	$idmodulo = $_POST['idmodulo'];
-	$version = $_POST['version'];
 	$purchase_year = $_POST['purchase_year'];
-	$gsm = $_POST['gsm'];
-	$firmware = $_POST['firmware'];
 	$clase = 'Vehiculos';
-	$clase::add($cliente_id, $placa, $modelo, $marca, $color, $idmodulo, $version, $gsm, $firmware, $purchase_year);
+	$clase::add($cliente_id, $placa, $modelo, $marca, $color, $idmodulo, $purchase_year);
 	}
 return add();
+echo "<a href="../../">Regresa al inicio</a>";
 	?>
+
