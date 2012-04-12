@@ -1,6 +1,6 @@
 <html>
 <h1>Editar cliente</h1>
-<form action='edit_st.php' method=POST>
+<form action='views/vehiculos/edit_st.php' method=POST>
 	<table>
 		<tr>
 			<td>Placa:</td>
@@ -11,7 +11,7 @@
 </form>
 <?
 include "../../model/db.inc.php";
-$cirif = $_POST['placa'];
+$placa = $_POST['placa'];
 $clase = 'Vehiculos';
 $clase::search_st($placa);
 ?>
@@ -20,19 +20,19 @@ $clase::search_st($placa);
 	<table>
 		<tr>
 			<td>ID Módulo: </td>
-			<td><input type=text name=cliente_id id=cliente_id /></td>
+			<td><input type=text name=idmodulo id=idmodulo /></td>
 		</tr>
 		<tr>
 			<td>Número GSM: </td>
-			<td><input type=text name=placa id=placa /></td>
+			<td><input type=text name=gsm id=gsm /></td>
 		</tr>
 		<tr>
 			<td>Versión módulo:</td>
-			<td><input type=text name=marca id=marca /></td>
+			<td><input type=text name=version id=version /></td>
 		</tr>
 		<tr>
 			<td>Firmware: </td>
-			<td><input type=text name=modelo id=modelo /></td>
+			<td><input type=text name=firmware id=firmware /></td>
 		</tr>
 		<tr>
 			<td><input type=submit name=cargar id=cargar /></td>

@@ -194,7 +194,7 @@ class Vehiculos {
 	public static function edit($cliente_id, $placa, $marca, $modelo, $color, $purchase_year, $idmodulo) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "update vehiculos set cliente_id='$cliente_id', placa='$placa_nueva', marca='$marca', modelo='$modelo', color='$color', purchase_year='$purchase_year', idmodulo='$idmodulo'where placa='$placa'";
+		$string = "update vehiculos set cliente_id='$cliente_id', marca='$marca', modelo='$modelo', color='$color', purchase_year='$purchase_year', idmodulo='$idmodulo'where placa='$placa'";
 		$query = pg_query($string);
 		return $query;
 	}
@@ -202,7 +202,7 @@ class Vehiculos {
 	public static function edit_st($placa, $gsm, $firmware, $version, $idmodulo) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "update vehiculos(idmodulo, version, firmware, gsm) values ('$idmodulo', '$version', '$firmware', '$gsm') where placa='$placa'";
+		$string = "update vehiculos set idmodulo='$idmodulo', version='$version', firmware='$firmware', gsm='$gsm' where placa='$placa'";
 		$query = pg_query($string);
 		return $query;
 	}

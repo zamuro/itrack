@@ -1,6 +1,6 @@
 <html>
 <h1>Editar cliente</h1>
-<form action='views/vehiculos/edit_distrib.php' method=GET>
+<form action='views/vehiculos/edit_distrib.php' method=POST>
 	<table>
 		<tr>
 			<td>Placa:</td>
@@ -11,12 +11,12 @@
 </form>
 <?
 require_once "../../model/db.inc.php";
-$placa = $_GET['placa'];
+$placa = $_POST['placa'];
 $clase = 'Vehiculos';
 $clase::search_placa($placa);
 ?>
 <form action='../../controller/vehiculos/edit.php' method=POST>
-<INPUT TYPE=HIDDEN NAME=PLACA ID=PLACA VALUE<? echo $placa; ?>>
+<input type=hidden name=placa id=placa value="<? echo $placa; ?>">
 	<table>
 		<tr>
 			<td>CI/RIF del Cliente: </td>
@@ -24,7 +24,7 @@ $clase::search_placa($placa);
 		</tr>
 		<tr>
 			<td>Placa: </td>
-			<td><input type=text name=placa_nueva id=placa_nueva /></td>
+			<td>Campo índice. No puede ser reemplazado.</td>
 		</tr>
 		<tr>
 			<td>Marca:</td>
