@@ -7,18 +7,18 @@ class General {
 }
 
 class Clientes {
-	public static function add($nombre, $ci_rif, $tlf1, $tlf2, $email, $password) {
+	public static function add($nombre, $ci_rif, $tlf1, $tlf2, $email, $password, $usuario_id) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "insert into clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$ci_rif', '$tlf1', '$tlf2', '$email', '$password')";
+		$string = "insert into clientes(nombre, ci_rif, tlf1, tlf2, email, password, usuario_id) values ('$nombre', '$ci_rif', '$tlf1', '$tlf2', '$email', '$password', '$usuario_id')";
 		$query = pg_query($string);
 		return $query;
 	}
 	
-	public static function search_cirif($cirif) {
+	public static function search_cirif($cirif, $usuario_id) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "select * from clientes where ci_rif='$cirif'";
+		$string = "select * from clientes where ci_rif='$cirif' and usuario_id='$usuario_id'";
 		$query = pg_query($string);
 		while ($row = pg_fetch_array($query)) {
 ?>
@@ -49,8 +49,8 @@ class Clientes {
 	
 	public static function edit($cliente, $nombre, $cirif, $tlf1, $tlf2, $email, $encrypted_password) {
 		$clase = 'General';
-		$clase::connect();
-		$string = "update clientes(nombre, ci_rif, tlf1, tlf2, email, password) values ('$nombre', '$cirif', '$tlf1', '$tlf2', '$email', '$encrypted_password') where ci_rif='$cirif'";
+		$clase::connect(); 
+		$string = "update clientes set nombre='$nombre', tlf1='$tlf1', tlf2='$tlf2', email='$email', password='$password' where ci_rif='$cirif'";
 		$query = pg_query($string);
 		return $query;
 	}
@@ -82,18 +82,18 @@ class Usuarios {
 }
 
 class Vehiculos {
-	public static function add($cliente_id, $placa, $modelo, $marca, $color, $idmodulo, $purchase_year ) {
+	public static function add($cliente_id, $placa, $modelo, $marca, $color, $idmodulo, $purchase_year, $usuario_id ) {
 		$clase = 'General';
 		$clase::connect();
-		$string = "insert into vehiculos(cliente_id, placa, modelo, marca, color, idmodulo, purchase_year) values ('$cliente_id', '$placa', '$modelo', '$marca', '$color', '$idmodulo', '$purchase_year')";
+		$string = "insert into vehiculos(cliente_id, placa, modelo, marca, color, idmodulo, purchase_year, usuario_id) values ('$cliente_id', '$placa', '$modelo', '$marca', '$color', '$idmodulo', '$purchase_year', '$usuario_id')";
 		$query = pg_query($string);
 		return $query;
 	}
 	
-	static function search_cirif($ci_rif) {
+	static function search_cirif($ci_rif, $usuario_id) {
 		$clase = 'General';
 		$clase::Connect();
-		$string = "select * from vehiculos where cliente_id='$ci_rif'";
+		$string = "select * from vehiculos where cliente_id='$ci_rif' and usuario_id='$usuario_id'";
 		$query = pg_query($string);
 		while ($row = pg_fetch_array($query)) {
 			?>
@@ -199,7 +199,7 @@ class Vehiculos {
 		return $query;
 	}
 
-	public static function edit_st($placa, $gsm, $firmware, $version, $idmodulo) {
+	public static function edit_st($placa, $idmodulo, $gsm, $firmware, $version) {
 		$clase = 'General';
 		$clase::connect();
 		$string = "update vehiculos set idmodulo='$idmodulo', version='$version', firmware='$firmware', gsm='$gsm' where placa='$placa'";

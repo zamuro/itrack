@@ -8,6 +8,7 @@ function add() {
 	$encrypted_password = md5($password);
 	$clase = 'Usuarios';
 	$clase::add($usuario, $flag, $activo, $encrypted_password);
+	header ('location: ../../');
 	}
 return add();
 	?>

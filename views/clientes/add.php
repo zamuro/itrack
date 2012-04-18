@@ -1,6 +1,10 @@
+<?
+$usuario = $_SESSION['usuario'];
+?>
 <html>
 <h1>Agregar clientes</h1>
 <form action='/itrack/controller/clientes/add.php' method=POST>
+<input type=hidden name=usuario_id name=usuario_id value="<? echo $usuario; ?>" />
 	<table>
 		<tr>
 			<td>Nombre</td>
