@@ -1,4 +1,4 @@
-<form action=/itrack/controller/check.php method=post>
+<form action=controller/check.php method=post>
 <table>
 	<tr>
 		<td>Usuario:</td>

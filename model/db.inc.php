@@ -46,6 +46,15 @@ class Clientes {
 <?
 		}
 	}
+
+	public static function listar() {
+		$clase = 'General';
+		$clase::connect(); 
+		$string = "select id from clientes";
+		$query = pg_query($string);
+		$lista = pg_num_rows($query);
+		echo $lista;
+	}
 	
 	public static function edit($cliente, $nombre, $cirif, $tlf1, $tlf2, $email, $encrypted_password) {
 		$clase = 'General';
@@ -205,6 +214,15 @@ class Vehiculos {
 		$string = "update vehiculos set idmodulo='$idmodulo', version='$version', firmware='$firmware', gsm='$gsm' where placa='$placa'";
 		$query = pg_query($string);
 		return $query;
+	}
+
+	public static function listar() {
+		$clase = 'General';
+		$clase::connect(); 
+		$string = "select id from vehiculos";
+		$query = pg_query($string);
+		$lista = pg_num_rows($query);
+		echo $lista;
 	}
 }
 

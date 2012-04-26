@@ -1,3 +1,4 @@
+<? session_start(); ?>
 <html>
 <h1>Asignar Vehículos</h1>
 <form action='controller/vehiculos/add.php' method=POST >

@@ -38,6 +38,9 @@ class Check {
 				case "3":
 					include "views/common/sidebars/sidebar_dist.php";
 					break;
+				case "4":
+					include "views/common/sidebars/sidebar_op.php";
+					break;
 			}
 		}
 	}

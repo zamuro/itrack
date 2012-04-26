@@ -12,6 +12,6 @@
 <?
 include "../../controller/vehiculos/search_cirif.php";
 ?>
-<p><a href=/itrack class=body>Regresa al inicio</a></p>
+<p><a href="/" class=body>Regresa al inicio</a></p>
 </body>
 </html>

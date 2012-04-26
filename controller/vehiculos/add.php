@@ -1,4 +1,5 @@
 <?
+session_start();
 require '../../model/db.inc.php';
 function add() {
 	$usuario_id = $_SESSION['usuario'];
@@ -11,7 +12,7 @@ function add() {
 	$purchase_year = $_POST['purchase_year'];
 	$clase = 'Vehiculos';
 	$clase::add($cliente_id, $placa, $modelo, $marca, $color, $idmodulo, $purchase_year, $usuario_id);
-	header ('location: ../../');
+	header ('location: /');
 }
 return add();
 	?>

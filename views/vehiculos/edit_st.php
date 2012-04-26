@@ -15,7 +15,7 @@ $placa = $_POST['placa'];
 $clase = 'Vehiculos';
 $clase::search_st($placa);
 ?>
-<form action='/itrack/controller/vehiculos/edit_st.php' method=POST>
+<form action='/controller/vehiculos/edit_st.php' method=POST>
 <input type=hidden name=placa id=placa value="<? echo $placa; ?>">
 	<table>
 		<tr>
